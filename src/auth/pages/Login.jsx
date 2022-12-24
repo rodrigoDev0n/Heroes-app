@@ -12,6 +12,7 @@ export const Login = () => {
 
   return (
     <div className="container mt-5">
+      <p>Esto es el login page</p>
       <h1>Login</h1>
       <hr />
 
