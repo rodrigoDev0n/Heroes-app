@@ -1,0 +1,5 @@
+export * from './pages/DC'
+export * from './pages/Marvel'
+export * from './pages/Search'
+export * from './pages/Hero'
+export * from './components'
