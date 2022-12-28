@@ -10,12 +10,14 @@ export const Search = () => {
     'searchText': '',
   }) 
 
-  
   const navigate = useNavigate()
   const location = useLocation()
 
   const {q = ''} = queryString.parse(location.search)
   const heroe = getHeroByName(q)
+
+  const showSearchAlert = (q.length === 0)
+  const showNotFoundAlert = (q.length > 0) && heroe.length === 0
   
   const handleSubmit = (event) => {
     event.preventDefault()
@@ -48,20 +50,19 @@ export const Search = () => {
              <h1>Result</h1>
              <hr/>
              {
-               q === '' 
-               ? <div className='alert alert-primary animate__animated animate__bounce'>
-                  Busca un heroe
-                </div>
-               : (heroe.length === 0) 
-               && <div className='alert alert-danger animate__animated animate__bounce'>
-                  No hay heroes con el nombre <b>{q}</b>
-                 </div>
-             }
-             {
                 heroe.map(e => (
                  <HeroeCard key={e.id} heroe={e} />
                 ))
              }
+             <div className='alert alert-primary' style={{display: showSearchAlert ? '': 'none'}}>
+                Busca un heroe <b>🧐</b>
+             </div>
+             
+             <div 
+                className='alert alert-danger animate__animated animate__bounce' 
+                style={{display: showNotFoundAlert ? '': 'none'}}>
+              No hay heroes con el nombre <b>{q}</b> <b>😕 😢</b>
+             </div>
            </div>
         </div>
     </>
