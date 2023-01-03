@@ -1,3 +1,4 @@
+// Data para alimentar la aplicación
 export const heroesData = [
     {
         'id': 'dc-batman',
@@ -160,3 +161,5 @@ export const heroesData = [
         'characters':'Norrin Radd'
     }
 ]
+
+
